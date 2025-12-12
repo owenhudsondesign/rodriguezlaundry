@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
@@ -10,35 +11,19 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-[90vh] overflow-hidden bg-[#FAFAF8]">
-      {/* Background Elements */}
+    <section className="relative min-h-[90vh] overflow-hidden">
+      {/* Background Image */}
       <div className="absolute inset-0">
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-pale/80 via-transparent to-sand-light/50" />
-
-        {/* Animated blob shapes */}
-        <div
-          className={`absolute -top-32 -right-32 h-96 w-96 bg-seafoam/30 blob blob-animate transition-opacity duration-1000 ${mounted ? "opacity-100" : "opacity-0"}`}
+        <Image
+          src="/images/shutterstock_2517686959.jpg"
+          alt="Laundry service background"
+          fill
+          className="object-cover"
+          priority
         />
-        <div
-          className={`absolute top-1/2 -left-48 h-[500px] w-[500px] bg-pale/50 blob blob-animate transition-opacity duration-1000 delay-300 ${mounted ? "opacity-100" : "opacity-0"}`}
-          style={{ animationDelay: "2s" }}
-        />
-        <div
-          className={`absolute -bottom-24 right-1/4 h-64 w-64 bg-sand/20 blob blob-animate transition-opacity duration-1000 delay-500 ${mounted ? "opacity-100" : "opacity-0"}`}
-          style={{ animationDelay: "4s" }}
-        />
-
-        {/* Decorative lines */}
-        <svg
-          className="absolute top-20 left-10 h-32 w-32 text-sand/30"
-          viewBox="0 0 100 100"
-          fill="none"
-        >
-          <circle cx="50" cy="50" r="45" stroke="currentColor" strokeWidth="0.5" />
-          <circle cx="50" cy="50" r="35" stroke="currentColor" strokeWidth="0.5" />
-          <circle cx="50" cy="50" r="25" stroke="currentColor" strokeWidth="0.5" />
-        </svg>
+        {/* Gradient overlays for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-white/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-transparent to-white/80" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-36">
@@ -171,52 +156,17 @@ export default function Hero() {
           <div
             className={`relative transition-all duration-1000 delay-300 ${mounted ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12"}`}
           >
-            {/* Main card */}
-            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-gradient-to-br from-primary via-secondary to-primary shadow-2xl">
-              {/* Animated gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent" />
-
-              {/* Content */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center text-white">
-                {/* Animated icon */}
-                <div className="animate-float">
-                  <div className="rounded-2xl bg-white/10 p-6 backdrop-blur-sm">
-                    <svg
-                      className="h-20 w-20 text-white"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={1}
-                        d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
-                      />
-                    </svg>
-                  </div>
-                </div>
-
-                {/* Stats */}
-                <div className="mt-8 grid grid-cols-3 gap-8">
-                  <div>
-                    <div className="text-4xl font-bold stat-number">50+</div>
-                    <div className="mt-1 text-sm text-white/70">Properties Served</div>
-                  </div>
-                  <div>
-                    <div className="text-4xl font-bold stat-number">24h</div>
-                    <div className="mt-1 text-sm text-white/70">Turnaround</div>
-                  </div>
-                  <div>
-                    <div className="text-4xl font-bold stat-number">5.0</div>
-                    <div className="mt-1 text-sm text-white/70">Star Rating</div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Decorative circles */}
-              <div className="absolute -bottom-16 -right-16 h-48 w-48 rounded-full border border-white/10" />
-              <div className="absolute -bottom-8 -right-8 h-32 w-32 rounded-full border border-white/10" />
+            {/* Main image */}
+            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-2xl">
+              <Image
+                src="/images/stackoflinens.png"
+                alt="Fresh, neatly folded linens"
+                fill
+                className="object-cover"
+                priority
+              />
+              {/* Subtle gradient overlay for depth */}
+              <div className="absolute inset-0 bg-gradient-to-t from-slate/20 via-transparent to-transparent" />
             </div>
 
             {/* Floating accent card */}
